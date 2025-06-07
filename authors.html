@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Authors and Books</title>
+<style>
+	body {
+		background-color: #f0f0f0;
+		font-family: Arial, sans-serif;
+		margin: 0;
+		padding: 0;
+	}
+	header {
+		background-color: #556B2F;
+		color: white;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 10px 20px;
+	}
+	header img {
+		height: 50px;
+	}
+	
+	header h1 {
+		margin: 0 auto;
+		font-size: 24px;
+	}
+	nav {
+		background-color: #8FBC8F;
+		padding: 15px;
+		text-align: center;
+	}
+	nav a {
+		margin: 10px;
+		text-decoration: none;
+		color: #333;
+		font-weight: bold;
+		padding: 10px 20px;
+		background-color: white;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		display: inline-block;
+	}
+	nav a:hover, .back-btn:hover {
+	background-color: #dcdcdc;
+	}
+	
+	main {
+	padding: 20px;
+	text-align: center;
+	}
+	
+	ul {
+		list-style-type: none;
+		padding-left: 0;
+		text-align: left;
+		display: inline-block;
+	}
+	
+	ul li::before {
+		content: "#📘";
+	}
+	
+	form {
+		background-color: #DCEAF2;
+		padding: 20px;
+		margin: 30px auto;
+		width: 90%;
+		max-width: 500px;
+		border-radius: 10px;
+		text-align: left;
+	}
+	
+	label {
+		display: block;
+		margin-top: 10px;
+		font-weight: bold;
+	}
+	
+	input, select, textarea {
+		width: 100%;
+		padding: 8px;
+		margin-top: 5px;
+	}
+	
+	button[type="submit"] {
+		margin-top: 15px;
+		padding: 10px 20px;
+		font-weight: bold;
+	}
+	footer {
+		background-color: #556B2F;
+		color: white;
+		text-align: center;
+		padding: 15px;
+		position: relative;
+		bottom: 0;
+		width: 100%;
+		font-size: 14px;
+	}
+	</style>
+	<script>
+	function saveFavorite() {
+		const userName = documant.getElementById("name").value;
+		localStorage.setItem("favoriteUser", userName);
+		alert("Favorite saved to local storage!");
+	}
+	
+	function goBack() {
+		window.history.back();		
+	}
+	</script>
+</head>
+<body>
+	<header>
+		<img src="https://th.bing.com/th/id/R.2ba4ffa3b4ede378074d23ba1ef5f9c9?rik=2t5ZUbt5btDyvQ&riu=http%3a%2f%2f1.bp.blogspot.com%2f_1IwJSFYdX2s%2fTQA2XlXv4OI%2fAAAAAAAAaa8%2fTI_JnKJ_l9k%2fs1600%2fHeader%2bBlock.jpg&ehk=CgFR0gY6HJboyf%2fl3g8qR6lACSJSdim86CZvEOLQuWA%3d&risl=&pid=ImgRaw&r=0.png" alt="Logo">
+		<h1>Authors and Books</h1>
+	</header>
+	<nav>
+		<a href="index.html">Home</a>
+		<a href="#" class="back-btn" oneclick="goBack()">Back</a>
+	</nav>
+	<main>
+		<h2>My Favorite Authors and Their Books</h2>
+		<ul>
+			<li>Sarah J. Maas - A Court of Thorns and Roses Series</li>
+			<li>Rebecca Yarros - Onyx Storm Series</li>
+			<li>James Patterson - Maximum Ride Series. This series helped me get into reading more when I was in middle school!</li>
+			<li>DK Holme - Shadow Accords Series</li>
+		</ul>
+		
+		<h2>Share Your Favorite Author</h2>
+		<form onsubmit="saveFavorite(); return false;">
+			<label for="name">Your Name:</label>
+			<input type="text" id="name" required>
+			
+			<label for="genre">Favorite Genre: </label>
+			<select id="genre">
+				<option>Fantasy</option>
+				<option>Romance</option>
+				<option>Thriller</option>
+				<option>Non-Fiction</option>
+			</select>
+			
+			<label for="book">Favorite Book Title:</label>
+			<input type="text" id="book" required>
+			
+			<label for="reason"Why do you love this book?</label>
+			<textarea id="reason" rows="4"></textarea>
+			
+			<button type="submit">Submit</button>
+		</form>
+	</main>
+	<footer>
+	&copy; 2025 Cassandra Daniel | Contact: cassandra.daniel@smail.rasmussen.edu
+	</footer>
+</body>
+</html>
